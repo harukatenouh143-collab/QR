@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Instagram - Grupo Scout San Cayetano</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Librería para generación y estilizado de código QR -->
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+    <main class="container">
+        <section class="card printable-area">
+            <header class="card-header">
+                <div class="icon-wrapper">
+                    <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </div>
+                <h1>Grupo Scout San Cayetano</h1>
+                <p class="subtitle">¡Síguenos en nuestro perfil oficial de Instagram!</p>
+            </header>
+
+            <div id="qr-container" class="qr-container">
+                <div id="canvas-holder"></div>
+                <div class="url-display" id="url-display">instagram.com/gruposancayetano</div>
+                <p class="scan-instructions">Escanea este código con la cámara de tu teléfono</p>
+            </div>
+
+            <!-- Botones de Acción (Ocultos al imprimir) -->
+            <div class="action-buttons no-print">
+                <button id="download-btn" class="btn btn-primary">Descargar PNG</button>
+                <button id="print-btn" class="btn btn-secondary">🖨️ Imprimir Hoja Carta</button>
+            </div>
+
+            <form id="qr-form" class="form-group no-print">
+                <label for="username">Enlace</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" value="https://www.instagram.com/gruposancayetano" autocomplete="off" required>
+                </div>
+                <button type="submit" id="generate-btn">Actualizar QR</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+:root {
+    --bg-color: #000000;
+    --card-bg: #111111;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --input-bg: #000000;
+    --border-color: #000000;
+    --primary-gradient: linear-gradient(45deg, #1f1f1f 0%, #000000 50%, #333333 100%);
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 540px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    border-radius: 28px;
+    padding: 1.75rem 1.5rem 1.25rem;
+    box-shadow: none;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: transparent;
+    margin-bottom: 0.75rem;
+    border: 2px solid #000000;
+}
+
+.instagram-icon {
+    width: 34px;
+    height: 34px;
+    stroke: #000000;
+}
+
+.card-header h1 {
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.2;
+}
+
+.card-header p {
+    font-size: 1.1rem;
+    color: #000000;
+    margin-top: 0.35rem;
+    font-weight: 500;
+}
+
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    background: #ffffff;
+    padding: 0.5rem 0 0;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+}
+
+#canvas-holder canvas, #canvas-holder svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: min(70vw, 285px);
+}
+
+.url-display {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #000000;
+    margin-top: 0.25rem;
+}
+
+.scan-instructions {
+    font-size: 0.9rem;
+    color: #000000;
+    font-style: italic;
+}
+
+.action-buttons {
+    display: none !important;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-group {
+    display: none !important;
+}
+
+.btn {
+    flex: 1;
+    border: none;
+    padding: 0.85rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background: #334155;
+    color: #ffffff;
+}
+
+.btn:hover {
+    opacity: 0.92;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.25rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#generate-btn {
+    background: #334155;
+    color: var(--text-color);
+    border: none;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .card {
+        padding: 1.25rem 1rem 1rem;
+        border-radius: 22px;
+    }
+
+    .icon-wrapper {
+        width: 52px;
+        height: 52px;
+    }
+
+    .card-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .card-header p {
+        font-size: 0.95rem;
+    }
+
+    .url-display {
+        font-size: 1rem;
+    }
+
+    .scan-instructions {
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================
+   REGLAS ESPECÍFICAS PARA IMPRESIÓN (HOJA CARTA)
+   ========================================== */
+@media print {
+    @page {
+        size: letter portrait; /* Tamaño carta vertical */
+        margin: 0;
+    }
+
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 2cm;
+    }
+
+    .card {
+        background-color: #ffffff !important;
+        border: 2px solid #000000 !important;
+        box-shadow: none !important;
+        padding: 3rem 2rem !important;
+        border-radius: 20px !important;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .card-header h1 {
+        font-size: 2.2rem !important;
+        color: #000000 !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-header p {
+        font-size: 1.2rem !important;
+        color: #333333 !important;
+    }
+
+    .instagram-icon {
+        width: 50px !important;
+        height: 50px !important;
+        stroke: #000000 !important;
+    }
+
+    .qr-container {
+        border: none !important;
+        background: transparent !important;
+        margin: 2rem 0 !important;
+        padding: 0 !important;
+    }
+
+    #canvas-holder canvas {
+        width: 320px !important;
+        height: 320px !important;
+    }
+
+    .url-display {
+        font-size: 1.3rem !important;
+        color: #000000 !important;
+        margin-top: 1rem;
+    }
+
+    .scan-instructions {
+        font-size: 1rem !important;
+        color: #555555 !important;
+    }
+
+    /* Ocultar elementos no imprimibles */
+    .no-print {
+        display: none !important;
+    }
+}
